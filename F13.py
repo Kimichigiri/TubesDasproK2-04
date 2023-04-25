@@ -8,7 +8,7 @@ def loading(folder_name):
     if not folder_name:
         print("Tidak ada nama folder yang diberikan!") ; print()
         print("Usage: python main.py <nama_folder>")
-        return
+        globalvars.load_state = False # kalau nama folder salah load state false
 
     # Membuat path csv dari masing-masing file
     csv_path = "save/" + folder_name + "/user.csv"
@@ -82,6 +82,7 @@ def load():
     if args.folder_name is None:            # Jika tidak
         print("Tidak ada folder yang diberikan!") ; print()
         print("Usage: python main.py <nama_folder>")
+        globalvars.load_state = False # kalau nama folder salah load state false
 
     else:   # Jika folder aman
         # Call the main function with the specified folder name

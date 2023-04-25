@@ -25,7 +25,10 @@ from F16 import *
 #F13 LOAD
 if __name__ == '__main__':
     load()
-loadmaterial(globalvars.bahan_bangunan)
+
+# cek load_state true atau false, kalau benar baru jalanin loadmaterial
+if (globalvars.load_state):
+    loadmaterial(globalvars.bahan_bangunan)
 
 
 while(globalvars.load_state):
