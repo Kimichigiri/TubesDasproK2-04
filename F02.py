@@ -1,9 +1,8 @@
-from globalvars import login_state
 import globalvars
 
 def logout():
    
-    if globalvars.login_state:
+    if globalvars.login_state:  # Cek keadaan login
         print()
         globalvars.login_state = False
         globalvars.current_user = ""

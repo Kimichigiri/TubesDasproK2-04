@@ -1,12 +1,15 @@
 import globalvars
-from listoffunction import *
+from listoffunction import isMember, get_index
 
 def ubahjin():
-    ubah_jin = input("Masukkan username jin : ")
+
+    if globalvars.current_user != "Bondowoso":     # Cek apakah user adalah Bondowoso
+        print("Anda tidak memiliki akses!\n")
+        return
+
+    ubah_jin = input("Masukkan username jin : ")   # Input username jin yang role nya ingin diubah
     if isMember(globalvars.user, ubah_jin, 0):
-        tipe_jin = globalvars.user[get_index(globalvars.user, ubah_jin, 0)][2]
-        
-        print(tipe_jin)
+        tipe_jin = globalvars.user[get_index(globalvars.user, ubah_jin, 0)][2]      # Cek tipe sekarang
 
         if tipe_jin == "jin_pembangun":
             invers_tipe_jin = "Pengumpul"
@@ -15,14 +18,14 @@ def ubahjin():
             invers_tipe_jin = "Pembangun"
             teksubah = "Pengumpul"
         
-        print(f'Jin ini bertipe "{teksubah}". Yakin ingin mengubah ke tipe "{invers_tipe_jin}" ', end="")
-        verif_ubah_jin = input("(Y/N)? ")
+        verif_ubah_jin = input(f'Jin ini bertipe "{teksubah}". Yakin ingin mengubah ke tipe "{invers_tipe_jin}" (Y/N)? ')       
 
         if invers_tipe_jin == "Pengumpul":
             invers_tipe_jin = "jin_pengumpul"
         elif invers_tipe_jin == "Pembangun":
             invers_tipe_jin = "jin_pembangun"
 
+         # Verifikasi pengubahan tipe
         if verif_ubah_jin == "Y":
             globalvars.user[get_index(globalvars.user, ubah_jin, 0)][2] = invers_tipe_jin
             
