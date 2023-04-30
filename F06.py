@@ -21,18 +21,16 @@ def bangun():
             id_num = findMark(globalvars.candi)
             candi_terbangun = [id_num, globalvars.current_user, pasir_bangun, batu_bangun, air_bangun]  # Array yang akan di tambah ke database
             appends(globalvars.candi, candi_terbangun)      # Menambah database candi dengan candi baru
+            jumlah_candi = countCandi(globalvars.candi)
+
+            print("Candi berhasil dibangun")
+            print(f"Sisa candi yang perlu dibangun: {100 - jumlah_candi}.\n")    # Output sisa candi yang perlu dibangun
 
         globalvars.bahan_bangunan[0][2] -= pasir_bangun     # Penggunaan bahan
         globalvars.bahan_bangunan[1][2] -= batu_bangun
         globalvars.bahan_bangunan[2][2] -= air_bangun
 
-        jumlah_candi = countCandi(globalvars.candi)
-
-        print("Candi berhasil dibangun")
-        print(f"Sisa candi yang perlu dibangun: {100 - jumlah_candi}.\n")    # Output sisa candi yang perlu dibangun
-
     else:
-        print()
         print("Bahan bangunan tidak mencukupi.")
         print("Candi tidak bisa dibangun!")
     
